@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -21,13 +19,16 @@ public class GespraechsplanungController {
     public List<Gespraechsplanung> getAllGespraeche() {
         System.out.println("Hole alle Gespräche...");
 
-       List<Gespraechsplanung> gespraeche = new ArrayList<>();
-       gespraechsplanungRepository.findAll().forEach(gespraeche::add);
+       //List<Gespraechsplanung> gespraeche = new ArrayList<>();
+       return gespraechsplanungRepository.findAll(); //.forEach(gespraeche::add);
+    }
 
-
-        //return "Klappt!";
-
-        return gespraeche;
+    @PostMapping("/gespraeche")
+    public Gespraechsplanung addGespreach(
+            @RequestBody Gespraechsplanung data
+    ){
+        Gespraechsplanung saved = gespraechsplanungRepository.save(data);
+        return saved;
     }
 
     /*
