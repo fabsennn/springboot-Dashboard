@@ -20,21 +20,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mit.Dashboard.Gespraechsplanung;
 import com.mit.Dashboard.GespraechsplanungRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class GespraechsplanungController {
     @Autowired
     GespraechsplanungRepository repository;
 
     @GetMapping("/gespraeche")
-    public List<Gespraechsplanung> getAllGespraeche() {
-        System.out.println("Hole alle Gespräche...");
+    public String/*List<Gespraechsplanung>*/ getAllGespraeche() {
+        /*System.out.println("Hole alle Gespräche...");
 
         List<Gespraechsplanung> gespraeche = new ArrayList<>();
-        repository.findAll().forEach(gespraeche::add);
+        repository.findAll().forEach(gespraeche::add);*/
 
-        return gespraeche;
+        return "Klappt!";
     }
 
     /* FROM TUTORIAL
@@ -65,7 +65,7 @@ public class GespraechsplanungController {
         return new ResponseEntity<>("All customers have been deleted!", HttpStatus.OK);
     }*/
 
-    @GetMapping(value = "customers/kundennummer/{kundennummer}")
+    @GetMapping(value = "/customers/kundennummer/{kundennummer}")
     public List<Gespraechsplanung> findByKundennummer(@PathVariable int kundennummer) {
 
         List<Gespraechsplanung> gespraeche = repository.findByKundennummer(kundennummer);
