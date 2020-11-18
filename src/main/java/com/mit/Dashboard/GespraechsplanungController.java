@@ -5,37 +5,41 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.mit.Dashboard.Gespraechsplanung;
-import com.mit.Dashboard.GespraechsplanungRepository;
 
 //@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 //@RequestMapping("/api")
 public class GespraechsplanungController {
     @Autowired
-    GespraechsplanungRepository repository;
+    GespraechsplanungRepository gespraechsplanungRepository;
 
+    ///*
     @GetMapping("/gespraeche")
-    public String/*List<Gespraechsplanung>*/ getAllGespraeche() {
-        /*System.out.println("Hole alle Gespräche...");
+    public List<Gespraechsplanung> getAllGespraeche() {
+        System.out.println("Hole alle Gespräche...");
+
+       List<Gespraechsplanung> gespraeche = new ArrayList<>();
+       gespraechsplanungRepository.findAll().forEach(gespraeche::add);
+
+
+        //return "Klappt!";
+
+        return gespraeche;
+    }
+
+    /*
+    @GetMapping("/gespraeche")
+    public List<Gespraechsplanung> getAllGespraeche() {
+        //System.out.println("Get all Customers...");
 
         List<Gespraechsplanung> gespraeche = new ArrayList<>();
-        repository.findAll().forEach(gespraeche::add);*/
+        gespraechsplanungRepository.findAll().forEach(gespraeche::add);
 
-        return "Klappt!";
-    }
+        return gespraeche;
+    }//*/
 
     /* FROM TUTORIAL
 
@@ -65,10 +69,10 @@ public class GespraechsplanungController {
         return new ResponseEntity<>("All customers have been deleted!", HttpStatus.OK);
     }*/
 
-    @GetMapping(value = "/customers/kundennummer/{kundennummer}")
-    public List<Gespraechsplanung> findByKundennummer(@PathVariable int kundennummer) {
+    @GetMapping(value = "/gespraeche/kundennummer/{kundennummer}")
+    public Optional<Gespraechsplanung> findByKundennummer(@PathVariable long kundennummer) {
 
-        List<Gespraechsplanung> gespraeche = repository.findByKundennummer(kundennummer);
+        Optional<Gespraechsplanung> gespraeche = gespraechsplanungRepository.findById(kundennummer);
         return gespraeche;
     }
 

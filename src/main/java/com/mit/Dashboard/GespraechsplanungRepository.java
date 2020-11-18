@@ -7,4 +7,5 @@ import com.mit.Dashboard.Gespraechsplanung;
 
 public interface GespraechsplanungRepository extends CrudRepository<Gespraechsplanung, Long> {
     List<Gespraechsplanung> findByKundennummer(int kundennummer);
+    List<Gespraechsplanung> findAll();
 }
