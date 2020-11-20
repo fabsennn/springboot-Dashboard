@@ -18,10 +18,24 @@ public class GespraechsplanungController {
     ///*
     @GetMapping("/gespraeche")
     public List<Gespraechsplanung> getAllGespraeche() {
-        System.out.println("Hole alle Gespräche...");
-
         return gespraechsplanungService.findAll();
     }
+
+    @GetMapping("/gespraeche/berater/{beraterid}")
+    public List<Gespraechsplanung> getBeraterGespraeche(@PathVariable("beraterid") String beraterid) {
+
+        List<Gespraechsplanung> all = gespraechsplanungService.findAll();
+        List<Gespraechsplanung> results = null;
+
+
+        for (Gespraechsplanung current : all) {
+            if(current.getBerater().equals(beraterid)){
+                results.add(current);
+            }
+        }
+        return results;
+    }
+
 
     /*@PostMapping("/gespraeche")
     public Gespraechsplanung addGespreach(
