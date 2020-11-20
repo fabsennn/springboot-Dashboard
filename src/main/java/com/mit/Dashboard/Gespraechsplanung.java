@@ -33,10 +33,10 @@ public class Gespraechsplanung {
     @Column(name = "BERATER")
     private String berater;
 
-    @Column(name = "NAECHSTEFAELLIGKEIT")
+    @Column(name = "NAECHSTE_FAELLIGKEIT")
     private String  naechsteFaelligkeit;
 
-    @Column(name = "LETZTERKONTAKT")
+    @Column(name = "LETZTER_KONTAKT")
     private String  letzterKontakt;
 
     //Datum, Zeitraum, Berater, nächsteFälligkeit, letzterkontakt

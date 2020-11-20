@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 //@RequestMapping("/api")
 public class GespraechsplanungController {
+
     @Autowired
-    GespraechsplanungRepository gespraechsplanungRepository;
+    GespraechsplanungService gespraechsplanungService;
 
     ///*
     @GetMapping("/gespraeche")
     public List<Gespraechsplanung> getAllGespraeche() {
         System.out.println("Hole alle Gespräche...");
 
-       //List<Gespraechsplanung> gespraeche = new ArrayList<>();
-       return gespraechsplanungRepository.findAll(); //.forEach(gespraeche::add);
+        return gespraechsplanungService.findAll();
     }
 
-    @PostMapping("/gespraeche")
+    /*@PostMapping("/gespraeche")
     public Gespraechsplanung addGespreach(
             @RequestBody Gespraechsplanung data
     ){
         Gespraechsplanung saved = gespraechsplanungRepository.save(data);
         return saved;
-    }
+    }*/
 
     /*
     @GetMapping("/gespraeche")
@@ -70,12 +70,13 @@ public class GespraechsplanungController {
         return new ResponseEntity<>("All customers have been deleted!", HttpStatus.OK);
     }*/
 
+    /*
     @GetMapping(value = "/gespraeche/kundennummer/{kundennummer}")
     public Optional<Gespraechsplanung> findByKundennummer(@PathVariable long kundennummer) {
 
-        Optional<Gespraechsplanung> gespraeche = gespraechsplanungRepository.findById(kundennummer);
+        Optional<Gespraechsplanung> gespraeche = gespraechsplanungService.findById(kundennummer);
         return gespraeche;
-    }
+    }*/
 
     /*
     @PutMapping("/customers/{id}")
