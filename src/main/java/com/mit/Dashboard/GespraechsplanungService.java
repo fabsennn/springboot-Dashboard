@@ -22,6 +22,25 @@ public class GespraechsplanungService {
 
     }
 
+    public List<Gespraechsplanung> findByBerater(String bID){
+        var it = gespraechsplanungRepository.findAll();
+
+        var all = new ArrayList<Gespraechsplanung>();
+        var result = new ArrayList<Gespraechsplanung>();
+
+        it.forEach(e -> all.add(e));
+
+        for(Gespraechsplanung g: all){
+            if(g.getBerater().equals(bID)){
+                result.add(g);
+            }
+        }
+
+        return result;
+
+    }
+
+
     public Long count() {
 
         return gespraechsplanungRepository.count();
