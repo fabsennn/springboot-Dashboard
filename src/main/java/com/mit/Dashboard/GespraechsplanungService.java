@@ -52,6 +52,24 @@ public class GespraechsplanungService {
         return todos;
     }
 
+    public List<Gespraechsplanung> findPlanByBerater(String bID) {
+        var it = gespraechsplanungRepository.findAll();
+
+        var all = new ArrayList<Gespraechsplanung>();
+        var result = new ArrayList<Gespraechsplanung>();
+
+        it.forEach(e -> all.add(e));
+
+        for(Gespraechsplanung g: all){
+            if(g.getBerater().equals(bID) && g.getKategorie().equals("PLAN")){
+                result.add(g);
+            }
+        }
+
+        return result;
+
+    }
+
 
     public Long count() {
 
@@ -62,4 +80,6 @@ public class GespraechsplanungService {
 
         gespraechsplanungRepository.deleteById(id);
     }
+
+
 }
