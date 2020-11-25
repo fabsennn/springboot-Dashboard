@@ -7,4 +7,6 @@ import com.mit.Dashboard.Gespraechsplanung;
 import org.springframework.stereotype.Repository;
 
 public interface GespraechsplanungRepository extends CrudRepository<Gespraechsplanung, Long> {
+
+    public List<Gespraechsplanung> findAllByBerater(String berater);
 }

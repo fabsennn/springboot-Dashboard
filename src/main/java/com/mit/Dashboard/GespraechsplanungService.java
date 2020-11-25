@@ -37,7 +37,19 @@ public class GespraechsplanungService {
         }
 
         return result;
+    }
 
+    public List<TodoDto> findTodoByBerater(String berater) {
+        List<Gespraechsplanung> gespraechsPlanungen = gespraechsplanungRepository.findAllByBerater(berater);
+        List<TodoDto> todos = new ArrayList<>();
+
+        for (Gespraechsplanung gespraech : gespraechsPlanungen) {
+            TodoDto todoDto = new TodoDto(
+                    gespraech.getNaechsteFaelligkeit(),
+                    gespraech.getKundennummer());
+            todos.add(todoDto);
+        }
+        return todos;
     }
 
 
