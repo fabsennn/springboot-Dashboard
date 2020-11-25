@@ -26,4 +26,9 @@ public class GespraechsplanungController {
         return gespraechsplanungService.findByBerater(beraterid);
     }
 
+    @GetMapping("/gespraeche/berater/{beraterid}/plan")
+    public List<Gespraechsplanung> getPlanBeraterGespraeche(@PathVariable String beraterid) {
+        return gespraechsplanungService.findPlanByBerater(beraterid);
+    }
+
 }
