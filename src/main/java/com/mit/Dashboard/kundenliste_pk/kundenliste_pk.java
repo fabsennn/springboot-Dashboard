@@ -11,19 +11,19 @@ public class kundenliste_pk {
     private long id;
 
     @Column(name= "VERBUNDFUEHRER")
-    private int verbundführer;
+    private Integer verbundführer;
 
     @Column(name= "ALTER")
     private String alter;
 
     @Column(name= "ANZAHL_ERWACHSENE")
-    private int anz_erw;
+    private Integer anz_erw;
 
     @Column(name= "ANZAHL_KINDER")
-    private int anz_ki;
+    private Integer anz_ki;
 
     @Column(name= "ANZAHL_GIRO")
-    private int anz_giro;
+    private Integer anz_giro;
 
     @Column(name= "BERATER")
     private String berater;
@@ -32,70 +32,71 @@ public class kundenliste_pk {
     private String kundentyp;
 
     @Column(name= "EINKOMMEN")
-    private int einkommen;
+    private Integer einkommen;
 
     @Column(name= "SPARFAEHIGKEIT")
-    private int sparfähigkeit;
+    private Integer sparfähigkeit;
 
     @Column(name= "ERTRAG")
-    private int ertrag;
+    private Integer ertrag;
 
     @Column(name= "AUSLEIHUNGEN")
-    private int ausleihungen;
+    private Integer ausleihungen;
 
     @Column(name= "GESAMTEINLAGEN")
-    private int gesamteinl;
+    private Integer gesamteinl;
 
     @Column(name= "WERTPAPIERE")
-    private int wertpapiere;
+    private Integer wertpapiere;
 
     @Column(name= "DAVON_DEKA")
-    private int davon_deka;
+    private Integer davon_deka;
 
     @Column(name= "BS_SUMME")
-    private int bs_summe;
+    private Integer bs_summe;
 
     @Column(name= "BS_GUTHABEN")
-    private int bs_guthaben;
+    private Integer bs_guthaben;
 
     @Column(name= "RKW_LV")
-    private int rkw_lv;
+    private Integer rkw_lv;
 
     @Column(name= "KRANKENVERSICHERUNG")
-    private int krankenvers;
+    private Integer krankenvers;
 
     @Column(name= "UNFALLVERSICHERUNG")
-    private int unfallvers;
+    private Integer unfallvers;
 
     @Column(name= "SACHVERSICHERUNG")
-    private int sachvers;
+    private Integer sachvers;
 
     @Column(name= "SPARLEISTUNG")
-    private int sparleistung;
+    private Integer sparleistung;
 
     @Column(name= "FREISTELLUNG")
-    private int freistellung;
+    private Integer freistellung;
 
     @Column(name= "GESAMTRANG")
-    private int gesamtrang;
+    private Integer gesamtrang;
 
     @Column(name= "WP_RANG")
     private Integer wp_rang;
 
     @Column(name= "BS_RANG")
-    private int bs_rang;
+    private Integer bs_rang;
+
 
     @Column(name= "LV_RANG")
-    private int lv_rang;
+    private Integer lv_rang;
 
     @Column(name ="SOLLKONTAKTE")
-    private int sollkontakte;
+    private Integer sollkontakte;
 
     @Column(name= "ISTKONTAKTE")
-    private int istkontakte;
+    private Integer istkontakte;
 
     @Column(name= "OFFEN")
-    private int offen;
+    private Integer offen;
 
     @Column(name= "LETZTER_KONTAKT")
     private String letzter_kontakt;
@@ -108,260 +109,268 @@ public class kundenliste_pk {
 
     public kundenliste_pk(){}
 
-    public void setVerbundführer(int verbundführer) {
-        this.verbundführer = verbundführer;
+    public long getId() {
+        return id;
     }
 
-    public void setAlter(String alter) {
-        this.alter = alter;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public void setAnz_erw(int anz_erw) {
-        this.anz_erw = anz_erw;
-    }
-
-    public void setAnz_ki(int anz_ki) {
-        this.anz_ki = anz_ki;
-    }
-
-    public void setAnz_giro(int anz_giro) {
-        this.anz_giro = anz_giro;
-    }
-
-    public void setBerater(String berater) {
-        this.berater = berater;
-    }
-
-    public void setKundentyp(String kundentyp) {
-        this.kundentyp = kundentyp;
-    }
-
-    public void setEinkommen(int einkommen) {
-        this.einkommen = einkommen;
-    }
-
-    public void setSparfähigkeit(int sparfähigkeit) {
-        this.sparfähigkeit = sparfähigkeit;
-    }
-
-    public void setErtrag(int ertrag) {
-        this.ertrag = ertrag;
-    }
-
-    public void setAusleihungen(int ausleihungen) {
-        this.ausleihungen = ausleihungen;
-    }
-
-    public void setGesamteinl(int gesamteinl) {
-        this.gesamteinl = gesamteinl;
-    }
-
-    public void setWertpapiere(int wertpapiere) {
-        this.wertpapiere = wertpapiere;
-    }
-
-    public void setDavon_deka(int davon_deka) {
-        this.davon_deka = davon_deka;
-    }
-
-    public void setBs_summe(int bs_summe) {
-        this.bs_summe = bs_summe;
-    }
-
-    public void setBs_guthaben(int bs_guthaben) {
-        this.bs_guthaben = bs_guthaben;
-    }
-
-    public void setRkw_lv(int rkw_lv) {
-        this.rkw_lv = rkw_lv;
-    }
-
-    public void setKrankenvers(int krankenvers) {
-        this.krankenvers = krankenvers;
-    }
-
-    public void setUnfallvers(int unfallvers) {
-        this.unfallvers = unfallvers;
-    }
-
-    public void setSachvers(int sachvers) {
-        this.sachvers = sachvers;
-    }
-
-    public void setSparleistung(int sparleistung) {
-        this.sparleistung = sparleistung;
-    }
-
-    public void setFreistellung(int freistellung) {
-        this.freistellung = freistellung;
-    }
-
-    public void setGesamtrang(int gesamtrang) {
-        this.gesamtrang = gesamtrang;
-    }
-
-    public void setWp_rang(Integer wp_rang) {
-        this.wp_rang = wp_rang;
-    }
-
-    public void setBs_rang(int bs_rang) {
-        this.bs_rang = bs_rang;
-    }
-
-    public void setLv_rang(int lv_rang) {
-        this.lv_rang = lv_rang;
-    }
-
-    public void setSollkontakte(int sollkontakte) {
-        this.sollkontakte = sollkontakte;
-    }
-
-    public void setIstkontakte(int istkontakte) {
-        this.istkontakte = istkontakte;
-    }
-
-    public void setOffen(int offen) {
-        this.offen = offen;
-    }
-
-    public void setLetzter_kontakt(String letzter_kontakt) {
-        this.letzter_kontakt = letzter_kontakt;
-    }
-
-    public void setDurchdrungen_bis(String durchdrungen_bis) {
-        this.durchdrungen_bis = durchdrungen_bis;
-    }
-
-    public void setLetztes_fiko(String letztes_fiko) {
-        this.letztes_fiko = letztes_fiko;
-    }
-
-    public int getVerbundführer() {
+    public Integer getVerbundführer() {
         return verbundführer;
+    }
+
+    public void setVerbundführer(Integer verbundführer) {
+        this.verbundführer = verbundführer;
     }
 
     public String getAlter() {
         return alter;
     }
 
-    public int getAnz_erw() {
+    public void setAlter(String alter) {
+        this.alter = alter;
+    }
+
+    public Integer getAnz_erw() {
         return anz_erw;
     }
 
-    public int getAnz_ki() {
+    public void setAnz_erw(Integer anz_erw) {
+        this.anz_erw = anz_erw;
+    }
+
+    public Integer getAnz_ki() {
         return anz_ki;
     }
 
-    public int getAnz_giro() {
+    public void setAnz_ki(Integer anz_ki) {
+        this.anz_ki = anz_ki;
+    }
+
+    public Integer getAnz_giro() {
         return anz_giro;
+    }
+
+    public void setAnz_giro(Integer anz_giro) {
+        this.anz_giro = anz_giro;
     }
 
     public String getBerater() {
         return berater;
     }
 
+    public void setBerater(String berater) {
+        this.berater = berater;
+    }
+
     public String getKundentyp() {
         return kundentyp;
     }
 
-    public int getEinkommen() {
+    public void setKundentyp(String kundentyp) {
+        this.kundentyp = kundentyp;
+    }
+
+    public Integer getEinkommen() {
         return einkommen;
     }
 
-    public int getSparfähigkeit() {
+    public void setEinkommen(Integer einkommen) {
+        this.einkommen = einkommen;
+    }
+
+    public Integer getSparfähigkeit() {
         return sparfähigkeit;
     }
 
-    public int getErtrag() {
+    public void setSparfähigkeit(Integer sparfähigkeit) {
+        this.sparfähigkeit = sparfähigkeit;
+    }
+
+    public Integer getErtrag() {
         return ertrag;
     }
 
-    public int getAusleihungen() {
+    public void setErtrag(Integer ertrag) {
+        this.ertrag = ertrag;
+    }
+
+    public Integer getAusleihungen() {
         return ausleihungen;
     }
 
-    public int getGesamteinl() {
+    public void setAusleihungen(Integer ausleihungen) {
+        this.ausleihungen = ausleihungen;
+    }
+
+    public Integer getGesamteinl() {
         return gesamteinl;
     }
 
-    public int getWertpapiere() {
+    public void setGesamteinl(Integer gesamteinl) {
+        this.gesamteinl = gesamteinl;
+    }
+
+    public Integer getWertpapiere() {
         return wertpapiere;
     }
 
-    public int getDavon_deka() {
+    public void setWertpapiere(Integer wertpapiere) {
+        this.wertpapiere = wertpapiere;
+    }
+
+    public Integer getDavon_deka() {
         return davon_deka;
     }
 
-    public int getBs_summe() {
+    public void setDavon_deka(Integer davon_deka) {
+        this.davon_deka = davon_deka;
+    }
+
+    public Integer getBs_summe() {
         return bs_summe;
     }
 
-    public int getBs_guthaben() {
+    public void setBs_summe(Integer bs_summe) {
+        this.bs_summe = bs_summe;
+    }
+
+    public Integer getBs_guthaben() {
         return bs_guthaben;
     }
 
-    public int getRkw_lv() {
+    public void setBs_guthaben(Integer bs_guthaben) {
+        this.bs_guthaben = bs_guthaben;
+    }
+
+    public Integer getRkw_lv() {
         return rkw_lv;
     }
 
-    public int getKrankenvers() {
+    public void setRkw_lv(Integer rkw_lv) {
+        this.rkw_lv = rkw_lv;
+    }
+
+    public Integer getKrankenvers() {
         return krankenvers;
     }
 
-    public int getUnfallvers() {
+    public void setKrankenvers(Integer krankenvers) {
+        this.krankenvers = krankenvers;
+    }
+
+    public Integer getUnfallvers() {
         return unfallvers;
     }
 
-    public int getSachvers() {
+    public void setUnfallvers(Integer unfallvers) {
+        this.unfallvers = unfallvers;
+    }
+
+    public Integer getSachvers() {
         return sachvers;
     }
 
-    public int getSparleistung() {
+    public void setSachvers(Integer sachvers) {
+        this.sachvers = sachvers;
+    }
+
+    public Integer getSparleistung() {
         return sparleistung;
     }
 
-    public int getFreistellung() {
+    public void setSparleistung(Integer sparleistung) {
+        this.sparleistung = sparleistung;
+    }
+
+    public Integer getFreistellung() {
         return freistellung;
     }
 
-    public int getGesamtrang() {
+    public void setFreistellung(Integer freistellung) {
+        this.freistellung = freistellung;
+    }
+
+    public Integer getGesamtrang() {
         return gesamtrang;
+    }
+
+    public void setGesamtrang(Integer gesamtrang) {
+        this.gesamtrang = gesamtrang;
     }
 
     public Integer getWp_rang() {
         return wp_rang;
     }
 
-    public int getBs_rang() {
+    public void setWp_rang(Integer wp_rang) {
+        this.wp_rang = wp_rang;
+    }
+
+    public Integer getBs_rang() {
         return bs_rang;
     }
 
-    public int getLv_rang() {
+    public void setBs_rang(Integer bs_rang) {
+        this.bs_rang = bs_rang;
+    }
+
+    public Integer getLv_rang() {
         return lv_rang;
     }
 
-    public int getSollkontakte() {
+    public void setLv_rang(Integer lv_rang) {
+        this.lv_rang = lv_rang;
+    }
+
+    public Integer getSollkontakte() {
         return sollkontakte;
     }
 
-    public int getIstkontakte() {
+    public void setSollkontakte(Integer sollkontakte) {
+        this.sollkontakte = sollkontakte;
+    }
+
+    public Integer getIstkontakte() {
         return istkontakte;
     }
 
-    public int getOffen() {
+    public void setIstkontakte(Integer istkontakte) {
+        this.istkontakte = istkontakte;
+    }
+
+    public Integer getOffen() {
         return offen;
+    }
+
+    public void setOffen(Integer offen) {
+        this.offen = offen;
     }
 
     public String getLetzter_kontakt() {
         return letzter_kontakt;
     }
 
+    public void setLetzter_kontakt(String letzter_kontakt) {
+        this.letzter_kontakt = letzter_kontakt;
+    }
+
     public String getDurchdrungen_bis() {
         return durchdrungen_bis;
     }
 
+    public void setDurchdrungen_bis(String durchdrungen_bis) {
+        this.durchdrungen_bis = durchdrungen_bis;
+    }
+
     public String getLetztes_fiko() {
         return letztes_fiko;
+    }
+
+    public void setLetztes_fiko(String letztes_fiko) {
+        this.letztes_fiko = letztes_fiko;
     }
 
     @Override
