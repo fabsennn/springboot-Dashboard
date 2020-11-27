@@ -23,4 +23,20 @@ public class kundenliste_pkService {
 
         return privatkunden;
     }
+
+    public List<kundenliste_pk> findByKunde (Integer kundennummer){
+        var it = kundenliste_pkRepository.findAll();
+        var all = new ArrayList<kundenliste_pk>();
+        var result = new ArrayList<kundenliste_pk>();
+
+        it.forEach(e -> all.add(e));
+
+        for (kundenliste_pk k: all){
+            if(k.getVerbundführer() == kundennummer){
+                result.add(k);
+            };
+        }
+        return result;
+    }
+
 }

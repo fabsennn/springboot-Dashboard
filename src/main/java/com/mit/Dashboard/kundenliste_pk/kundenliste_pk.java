@@ -1,32 +1,32 @@
 package com.mit.Dashboard.kundenliste_pk;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name= "KUNDENLISTE_PK")
 public class kundenliste_pk {
 
     @Id
-    @Column(name= "VERBUNDFÜHRER")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name= "VERBUNDFUEHRER")
     private int verbundführer;
 
     @Column(name= "ALTER")
-    private int alter;
+    private String alter;
 
-    @Column(name= "Anz. Erw.")
+    @Column(name= "ANZAHL_ERWACHSENE")
     private int anz_erw;
 
-    @Column(name= "Anz. Ki.")
+    @Column(name= "ANZAHL_KINDER")
     private int anz_ki;
 
-    @Column(name= "Anz. Giro")
+    @Column(name= "ANZAHL_GIRO")
     private int anz_giro;
 
     @Column(name= "BERATER")
-    private int berater;
+    private String berater;
 
     @Column(name= "KUNDENTYP")
     private String kundentyp;
@@ -34,7 +34,7 @@ public class kundenliste_pk {
     @Column(name= "EINKOMMEN")
     private int einkommen;
 
-    @Column(name= "SPARFÄHIGKEIT")
+    @Column(name= "SPARFAEHIGKEIT")
     private int sparfähigkeit;
 
     @Column(name= "ERTRAG")
@@ -43,31 +43,31 @@ public class kundenliste_pk {
     @Column(name= "AUSLEIHUNGEN")
     private int ausleihungen;
 
-    @Column(name= "Gesamteinl.")
+    @Column(name= "GESAMTEINLAGEN")
     private int gesamteinl;
 
     @Column(name= "WERTPAPIERE")
     private int wertpapiere;
 
-    @Column(name= "davon Deka")
+    @Column(name= "DAVON_DEKA")
     private int davon_deka;
 
-    @Column(name= "BS-Summe")
+    @Column(name= "BS_SUMME")
     private int bs_summe;
 
-    @Column(name= "BS-Guthaben")
+    @Column(name= "BS_GUTHABEN")
     private int bs_guthaben;
 
-    @Column(name= "RKW LV")
+    @Column(name= "RKW_LV")
     private int rkw_lv;
 
-    @Column(name= "Krankenvers.")
+    @Column(name= "KRANKENVERSICHERUNG")
     private int krankenvers;
 
-    @Column(name= "Unfallvers.")
+    @Column(name= "UNFALLVERSICHERUNG")
     private int unfallvers;
 
-    @Column(name= "Sachvers.")
+    @Column(name= "SACHVERSICHERUNG")
     private int sachvers;
 
     @Column(name= "SPARLEISTUNG")
@@ -79,13 +79,13 @@ public class kundenliste_pk {
     @Column(name= "GESAMTRANG")
     private int gesamtrang;
 
-    @Column(name= "WP Rang")
-    private int wp_rang;
+    @Column(name= "WP_RANG")
+    private Integer wp_rang;
 
-    @Column(name= "BS Rang")
+    @Column(name= "BS_RANG")
     private int bs_rang;
 
-    @Column(name= "LV Rang")
+    @Column(name= "LV_RANG")
     private int lv_rang;
 
     @Column(name ="SOLLKONTAKTE")
@@ -97,13 +97,13 @@ public class kundenliste_pk {
     @Column(name= "OFFEN")
     private int offen;
 
-    @Column(name= "letzter Kontakt")
+    @Column(name= "LETZTER_KONTAKT")
     private String letzter_kontakt;
 
-    @Column(name= "Durchdrungen bis")
+    @Column(name= "DURCHDRUNGEN_BIS")
     private String durchdrungen_bis;
 
-    @Column(name= "letztes FiKo")
+    @Column(name= "LETZTES_FIKO")
     private String letztes_fiko;
 
     public kundenliste_pk(){}
@@ -112,7 +112,7 @@ public class kundenliste_pk {
         this.verbundführer = verbundführer;
     }
 
-    public void setAlter(int alter) {
+    public void setAlter(String alter) {
         this.alter = alter;
     }
 
@@ -128,7 +128,7 @@ public class kundenliste_pk {
         this.anz_giro = anz_giro;
     }
 
-    public void setBerater(int berater) {
+    public void setBerater(String berater) {
         this.berater = berater;
     }
 
@@ -200,7 +200,7 @@ public class kundenliste_pk {
         this.gesamtrang = gesamtrang;
     }
 
-    public void setWp_rang(int wp_rang) {
+    public void setWp_rang(Integer wp_rang) {
         this.wp_rang = wp_rang;
     }
 
@@ -240,7 +240,7 @@ public class kundenliste_pk {
         return verbundführer;
     }
 
-    public int getAlter() {
+    public String getAlter() {
         return alter;
     }
 
@@ -256,7 +256,7 @@ public class kundenliste_pk {
         return anz_giro;
     }
 
-    public int getBerater() {
+    public String getBerater() {
         return berater;
     }
 
@@ -328,7 +328,7 @@ public class kundenliste_pk {
         return gesamtrang;
     }
 
-    public int getWp_rang() {
+    public Integer getWp_rang() {
         return wp_rang;
     }
 
