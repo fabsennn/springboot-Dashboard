@@ -30,7 +30,7 @@ public class SwaggerConfiguration {
         return new LinkDiscoverers(SimplePluginRegistry.create(plugins));
     }
 
-    @Bean
+   @Bean
     public Docket postsApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("MIT Dashboard")
