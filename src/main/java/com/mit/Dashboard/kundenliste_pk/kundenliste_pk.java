@@ -11,7 +11,7 @@ public class kundenliste_pk {
     private long id;
 
     @Column(name= "VERBUNDFUEHRER")
-    private Integer verbundführer;
+    private Integer verbundführer;  
 
     @Column(name= "ALTER")
     private String alter;
