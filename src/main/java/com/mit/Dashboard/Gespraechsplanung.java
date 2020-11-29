@@ -122,6 +122,6 @@ public class Gespraechsplanung {
 
     @Override
     public String toString() {
-        return "Gespraech [id=" + id + ", Kundennummer=" + kundennummer + ", Thema=" + thema + ", Nächste Fälligkeit=" + naechsteFaelligkeit + "]";
+        return "Gespraech [id=" + id + ", Kategorie=" + kategorie + ",Kundennummer=" + kundennummer + ", Thema=" + thema + ", Nächste Fälligkeit=" + naechsteFaelligkeit + "]";
     }
 }
