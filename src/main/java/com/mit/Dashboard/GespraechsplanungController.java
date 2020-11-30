@@ -35,7 +35,17 @@ public class GespraechsplanungController {
     public List<TodoDto> getBeraterTodo(@PathVariable String beraterid) {
         return gespraechsplanungService.findTodoByBerater(beraterid);
     }
+    @GetMapping("/gespraeche/berater/PlanIst/{KatName}")
+    public List<Gespraechsplanung> getPlanIstDonut(@PathVariable String KatName) {
+        return gespraechsplanungService.findByPlanIst(KatName);
+    }
+
+    @GetMapping("/gespraeche/berater/PlanIst/Kategorie/{bid}")
+    public int[] getPlanIstBerater(@PathVariable String bid) {
+        return gespraechsplanungService.findByPlanIstBerater(bid);
+    }
 
 }
+
 
 
