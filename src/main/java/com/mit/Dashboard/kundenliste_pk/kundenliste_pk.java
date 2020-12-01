@@ -11,7 +11,10 @@ public class kundenliste_pk {
     private long id;
 
     @Column(name= "VERBUNDFUEHRER")
-    private Integer verbundführer;  
+    private Integer verbundführer;
+
+    @Column(name= "NACHNAME")
+    private String nachname;
 
     @Column(name= "ALTER")
     private String alter;
@@ -85,7 +88,6 @@ public class kundenliste_pk {
     @Column(name= "BS_RANG")
     private Integer bs_rang;
 
-
     @Column(name= "LV_RANG")
     private Integer lv_rang;
 
@@ -123,6 +125,14 @@ public class kundenliste_pk {
 
     public void setVerbundführer(Integer verbundführer) {
         this.verbundführer = verbundführer;
+    }
+
+    public String getNachname() {
+        return nachname;
+    }
+
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
     }
 
     public String getAlter() {
