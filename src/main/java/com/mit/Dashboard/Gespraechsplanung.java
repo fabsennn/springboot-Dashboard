@@ -18,6 +18,9 @@ public class Gespraechsplanung {
     @Column(name = "KUNDENNUMMER")
     private int kundennummer;
 
+    @Column(name = "KUNDENNAME")
+    private String  kundenname;
+
     @Column(name = "KATEGORIE")
     private String kategorie;
 
@@ -59,6 +62,10 @@ public class Gespraechsplanung {
     public int getKundennummer() {
         return kundennummer;
     }
+
+    public String getKundenname() { return kundenname; }
+
+    public void setKundenname(String kundenname) {this.kundenname = kundenname; }
 
     public void setKundennummer(int kundennummer) {
         this.kundennummer = kundennummer;
