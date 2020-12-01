@@ -46,6 +46,7 @@ public class GespraechsplanungService {
         for (Gespraechsplanung gespraech : gespraechsPlanungen) {
             TodoDto todoDto = new TodoDto(
                     gespraech.getNaechsteFaelligkeit(),
+                    gespraech.getKundenname(),
                     gespraech.getKundennummer());
             if (todoDto.getNaechsteFaelligkeit() != null && !todoDto.getNaechsteFaelligkeit().isEmpty())
             { todos.add(todoDto); }
