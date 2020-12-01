@@ -15,5 +15,6 @@ public class entwicklung_zielerfuellungController {
     @Autowired
     com.mit.Dashboard.entwicklung_zielerfuellung.entwicklung_zielerfuellungService entwicklung_zielerfuellungService;
 
-    // hier @GetMapping hinzufügen
+    @GetMapping("/entwicklung_zielerfuellung")
+    public List<entwicklung_zielerfuellung> getAllZiele() {return entwicklung_zielerfuellungService.findAll();}
 }

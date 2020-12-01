@@ -22,7 +22,7 @@ public class entwicklung_zielerfuellung {
     @Column(name= "BESTAND_STICHTAG")
     private double bestand_stichtag;
 
-    @Column(name= "JAHRESABSATZ/-ZUWACHS")
+    @Column(name= "JAHRESABSATZ_ZUWACHS")
     private double jahresabsatz_zuwachs;
 
     @Column(name= "JAHRESZIEL")
