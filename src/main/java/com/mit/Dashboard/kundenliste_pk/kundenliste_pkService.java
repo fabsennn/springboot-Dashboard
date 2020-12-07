@@ -36,42 +36,24 @@ public class kundenliste_pkService {
         return result;
     }
 
-    public List<kundenliste_pk> findLVPotenzialByBerater(String bID) {
+    public List<kundenliste_pk> findAllPotenzialByBerater(String bID)
+    {
         var it = kundenliste_pkRepository.findAll();
         var all = new ArrayList<kundenliste_pk>();
         var result = new ArrayList<kundenliste_pk>();
         it.forEach(e -> all.add(e));
-
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getLv_rang() <= 15 && k.getLv_rang()!=0) {
+            if (k.getBerater().equals(bID) && k.getBs_rang() <= 15 && k.getBs_rang()!=0) {      // BS
                 result.add(k);
             }
         }
-        return result;
-    }
-
-    public List<kundenliste_pk> findWPPotenzialByBerater(String bID) {
-        var it = kundenliste_pkRepository.findAll();
-        var all = new ArrayList<kundenliste_pk>();
-        var result = new ArrayList<kundenliste_pk>();
-        it.forEach(e -> all.add(e));
-
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getWp_rang() <= 15 && k.getWp_rang()!=0) {
+            if (k.getBerater().equals(bID) && k.getWp_rang() <= 15 && k.getWp_rang()!=0) {      // WP
                 result.add(k);
             }
         }
-        return result;
-    }
-
-    public List<kundenliste_pk> findBSPotenzialByBerater(String bID) {
-        var it = kundenliste_pkRepository.findAll();
-        var all = new ArrayList<kundenliste_pk>();
-        var result = new ArrayList<kundenliste_pk>();
-        it.forEach(e -> all.add(e));
-
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getBs_rang() <= 15 && k.getBs_rang()!=0) {
+            if (k.getBerater().equals(bID) && k.getLv_rang() <= 15 && k.getLv_rang()!=0) {      // LV
                 result.add(k);
             }
         }

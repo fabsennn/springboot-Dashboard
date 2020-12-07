@@ -16,15 +16,6 @@ public class kundenliste_pkController {
     @Autowired
     com.mit.Dashboard.kundenliste_pk.kundenliste_pkService kundenliste_pkService;
 
-    @GetMapping("/kundenliste_pk/lv_potenzial/{bID}")
-    public List<kundenliste_pk> getLVPotenzial(@PathVariable String bID) { return kundenliste_pkService.findLVPotenzialByBerater(bID);}
-
-    @GetMapping("/kundenliste_pk/bs_potenzial/{bID}")
-    public List<kundenliste_pk> getBSPotenzial(@PathVariable String bID) { return kundenliste_pkService.findBSPotenzialByBerater(bID);}
-
-    @GetMapping("/kundenliste_pk/wp_potenzial/{bID}")
-    public List<kundenliste_pk> getWPPotenzial(@PathVariable String bID) { return kundenliste_pkService.findWPPotenzialByBerater(bID);}
-
     @GetMapping("/kundenliste_pk")
     public List<kundenliste_pk> getAllPrivatkunden()
     {
@@ -35,4 +26,6 @@ public class kundenliste_pkController {
     public List<kundenliste_pk> getKundenVers(@PathVariable int kundennummer){
         return kundenliste_pkService.findByKunde(kundennummer);
     }
+    @GetMapping("/kundenliste_pk/all_potenzial/{bID}")
+    public List<kundenliste_pk> getAllPotenzial(@PathVariable String bID) { return kundenliste_pkService.findAllPotenzialByBerater(bID);}
 }
