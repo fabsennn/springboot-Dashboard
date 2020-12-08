@@ -43,17 +43,17 @@ public class kundenliste_pkService {
         var result = new ArrayList<kundenliste_pk>();
         it.forEach(e -> all.add(e));
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getBs_rang() <= 15 && k.getBs_rang()!=0) {      // BS
+            if (k.getBerater().equals(bID) && k.getBs_rang() <= 10 && k.getBs_rang()!=0) {      // BS
                 result.add(k);
             }
         }
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getWp_rang() <= 15 && k.getWp_rang()!=0) {      // WP
+            if (k.getBerater().equals(bID) && k.getWp_rang() <= 10 && k.getWp_rang()!=0) {      // WP
                 result.add(k);
             }
         }
         for (kundenliste_pk k : all) {
-            if (k.getBerater().equals(bID) && k.getLv_rang() <= 15 && k.getLv_rang()!=0) {      // LV
+            if (k.getBerater().equals(bID) && k.getLv_rang() <= 10 && k.getLv_rang()!=0) {      // LV
                 result.add(k);
             }
         }
