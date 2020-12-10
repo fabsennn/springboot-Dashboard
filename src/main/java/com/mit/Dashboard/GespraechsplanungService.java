@@ -1,10 +1,7 @@
 package com.mit.Dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -111,7 +108,6 @@ public class GespraechsplanungService {
         var it = gespraechsplanungRepository.findAll();
 
         var all3 = new ArrayList<Gespraechsplanung>();
-        //var result3 = new ArrayList<Gespraechsplanung>();
 
         var Plan = "PLAN";
         var Ist = "IST";
@@ -161,8 +157,6 @@ public class GespraechsplanungService {
 
     }
 
-
-
     public Long count() {
 
         return gespraechsplanungRepository.count();
@@ -172,6 +166,5 @@ public class GespraechsplanungService {
 
         gespraechsplanungRepository.deleteById(id);
     }
-
 
 }

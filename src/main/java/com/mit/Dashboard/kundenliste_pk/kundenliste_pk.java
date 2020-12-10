@@ -109,7 +109,7 @@ public class kundenliste_pk {
     @Column(name= "LETZTES_FIKO")
     private String letztes_fiko;
 
-    public kundenliste_pk(){}
+    public kundenliste_pk(){/*leer*/}
 
     public long getId() {
         return id;

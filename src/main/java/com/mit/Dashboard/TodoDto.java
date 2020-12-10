@@ -1,9 +1,5 @@
 package com.mit.Dashboard;
 
-import org.apache.tomcat.jni.Local;
-
-import java.util.Date;
-import java.time.DateTimeException;
 import java.time.LocalDate;
 
 public class TodoDto implements Comparable<TodoDto>{
@@ -39,7 +35,6 @@ public class TodoDto implements Comparable<TodoDto>{
     public String getKundenname() {return kundenname; }
 
     public void setKundenname(String kundenname) { this.kundenname = kundenname; }
-
 
     @Override
     public int compareTo(TodoDto o) {
