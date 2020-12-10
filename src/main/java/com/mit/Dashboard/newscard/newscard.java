@@ -19,6 +19,16 @@ public class newscard {
     @Column(name = "DRINGLICHKEIT")
     private String dringlichkeit;
 
+    public newscard() {
+
+    }
+
+    public newscard(String neuigkeit, String berater, String dringlichkeit) {
+        this.neuigkeit = neuigkeit;
+        this.berater = berater;
+        this.dringlichkeit = dringlichkeit;
+    }
+
     public long getId() {
         return id;
     }
@@ -51,9 +61,4 @@ public class newscard {
         this.dringlichkeit = dringlichkeit;
     }
 
-    public newscard(String neuigkeit, String berater, String dringlichkeit) {
-        this.neuigkeit = neuigkeit;
-        this.berater = berater;
-        this.dringlichkeit = dringlichkeit;
-    }
 }
