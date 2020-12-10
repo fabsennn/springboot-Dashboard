@@ -1,11 +1,18 @@
 package com.mit.Dashboard;
 
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Date;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "GESPRAECHSPLANUNG")
@@ -37,7 +44,7 @@ public class Gespraechsplanung {
     private String berater;
 
     @Column(name = "NAECHSTE_FAELLIGKEIT")
-    private String  naechsteFaelligkeit;
+    private String naechsteFaelligkeit;
 
     @Column(name = "LETZTER_KONTAKT")
     private String  letzterKontakt;
@@ -103,7 +110,7 @@ public class Gespraechsplanung {
         this.berater = berater;
     }
 
-    public String getNaechsteFaelligkeit() {
+    public String  getNaechsteFaelligkeit() {
         return naechsteFaelligkeit;
     }
 
