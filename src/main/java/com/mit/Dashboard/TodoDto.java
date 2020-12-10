@@ -1,26 +1,32 @@
 package com.mit.Dashboard;
 
-public class TodoDto {
+import org.apache.tomcat.jni.Local;
 
-    private String naechsteFaelligkeit;
+import java.util.Date;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+
+public class TodoDto implements Comparable<TodoDto>{
+
+    private LocalDate naechsteFaelligkeit;
 
     private int kundennummer;
 
     private String kundenname;
 
-    public TodoDto(String naechsteFaelligkeit, String kundenname, int kundennummer) {
+    public TodoDto(LocalDate naechsteFaelligkeit, String kundenname, int kundennummer) {
         this.naechsteFaelligkeit = naechsteFaelligkeit;
         this.kundennummer = kundennummer;
         this.kundenname = kundenname;
     }
 
-    public String getNaechsteFaelligkeit() {
+    public LocalDate getNaechsteFaelligkeit() {
         return naechsteFaelligkeit;
     }
 
-    public void setNaechsteFaelligkeit(String naechsteFaelligkeit) {
-        this.naechsteFaelligkeit = naechsteFaelligkeit;
-    }
+    public void setNaechsteFaelligkeit(LocalDate naechsteFaelligkeit) {
+      this.naechsteFaelligkeit = naechsteFaelligkeit;
+     }
 
     public int getKundennummer() {
         return kundennummer;
@@ -33,4 +39,10 @@ public class TodoDto {
     public String getKundenname() {return kundenname; }
 
     public void setKundenname(String kundenname) { this.kundenname = kundenname; }
+
+
+    @Override
+    public int compareTo(TodoDto o) {
+        return getNaechsteFaelligkeit().compareTo(o.getNaechsteFaelligkeit());
+    }
 }

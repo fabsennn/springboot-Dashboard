@@ -1,9 +1,13 @@
 package com.mit.Dashboard;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service
 public class GespraechsplanungService {
@@ -43,14 +47,28 @@ public class GespraechsplanungService {
         List<Gespraechsplanung> gespraechsPlanungen = gespraechsplanungRepository.findAllByBerater(berater);
         List<TodoDto> todos = new ArrayList<>();
 
+        DateTimeFormatter formatter =
+                DateTimeFormatter.ofPattern("dd-MM-yy");
+
         for (Gespraechsplanung gespraech : gespraechsPlanungen) {
+            if (gespraech.getNaechsteFaelligkeit() == null) {
+                continue;
+            }
+
+            LocalDate date;
+            try {
+                date = LocalDate.parse(gespraech.getNaechsteFaelligkeit(), formatter);
+            } catch (Exception e) {
+                continue;
+            }
+
             TodoDto todoDto = new TodoDto(
-                    gespraech.getNaechsteFaelligkeit(),
+                    date,
                     gespraech.getKundenname(),
                     gespraech.getKundennummer());
-            if (todoDto.getNaechsteFaelligkeit() != null && !todoDto.getNaechsteFaelligkeit().isEmpty())
-            { todos.add(todoDto); }
+            todos.add(todoDto);
         }
+        Collections.sort(todos);
         return todos;
     }
 
