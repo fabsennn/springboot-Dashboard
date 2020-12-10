@@ -10,9 +10,9 @@ public class newscardController {
     @Autowired
     private newscardRepository newscardRepository;
 
-    @RequestMapping(path = "/news", method = RequestMethod.POST)
-    public void News(@RequestParam() String neuigkeit, @RequestParam String berater,
-                     @RequestParam String dringlichkeit)
+    @RequestMapping(path = "/news/{neuigkeit}/{berater}/{dringlichkeit}", method = RequestMethod.POST)
+    public void News(@PathVariable() String neuigkeit, @PathVariable() String berater,
+                     @PathVariable() String dringlichkeit)
     {
         newscard NeueNews = new newscard(neuigkeit, berater, dringlichkeit);
         this.newscardRepository.save(NeueNews);
