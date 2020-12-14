@@ -17,4 +17,9 @@ public class entwicklung_zielerfuellungController {
 
     @GetMapping("/entwicklung_zielerfuellung")
     public List<entwicklung_zielerfuellung> getAllZiele() {return entwicklung_zielerfuellungService.findAll();}
+
+    @GetMapping("/entwicklung_zielerfuellung/erfolgsmessung")
+    public double[] getEntwicklung_zielerfuellung() {
+        return entwicklung_zielerfuellungService.findByEntwicklung_zielerfuellung();
+    }
 }
