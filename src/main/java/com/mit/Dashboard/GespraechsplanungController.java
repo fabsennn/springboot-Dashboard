@@ -45,6 +45,16 @@ public class GespraechsplanungController {
         return gespraechsplanungService.findByPlanIstBerater(bid);
     }
 
+    @PatchMapping("/gespraeche/ist/{gespraechID}")
+    public void setGespraechToIst(@PathVariable int gespraechID) {
+        gespraechsplanungService.setGespraechToIst(gespraechID);
+    }
+
+    @PatchMapping("/gespraeche/plan/{gespraechID}")
+    public void setGespraechToPlan (@PathVariable int gespraechID) {
+        gespraechsplanungService.setGespraechToPlan(gespraechID);
+    }
+
 }
 
 

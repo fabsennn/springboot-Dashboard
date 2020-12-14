@@ -157,6 +157,28 @@ public class GespraechsplanungService {
 
     }
 
+    public Gespraechsplanung setGespraechToIst(int gespraechID) {
+        Optional<Gespraechsplanung> g = gespraechsplanungRepository.findById((long) gespraechID);
+        if(g.isPresent()) {
+            Gespraechsplanung gToEdit = g.get();
+            gToEdit.setKategorie("IST");
+            this.gespraechsplanungRepository.save(gToEdit);
+            return gToEdit;
+        }
+        return null;
+    }
+
+    public Gespraechsplanung setGespraechToPlan(int gespraechID) {
+        Optional<Gespraechsplanung> g = gespraechsplanungRepository.findById((long) gespraechID);
+        if(g.isPresent()) {
+            Gespraechsplanung gToEdit = g.get();
+            gToEdit.setKategorie("PLAN");
+            this.gespraechsplanungRepository.save(gToEdit);
+            return gToEdit;
+        }
+        return null;
+    }
+
     public Long count() {
 
         return gespraechsplanungRepository.count();
