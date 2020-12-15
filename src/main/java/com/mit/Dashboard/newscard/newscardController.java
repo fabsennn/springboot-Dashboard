@@ -13,11 +13,11 @@ public class newscardController {
     @Autowired
     private newscardRepository newscardRepository;
 
-    @RequestMapping(path = "/news/{neuigkeit}/{berater}/{dringlichkeit}", method = RequestMethod.POST)
+    @RequestMapping(path = "/news/{neuigkeit}/{berater}/{dringlichkeit}/{datum}", method = RequestMethod.POST)
     public void News(@PathVariable() String neuigkeit, @PathVariable() String berater,
-                     @PathVariable() String dringlichkeit)
+                     @PathVariable() String dringlichkeit, @PathVariable() String datum)
     {
-        newscard NeueNews = new newscard(neuigkeit, berater, dringlichkeit);
+        newscard NeueNews = new newscard(neuigkeit, berater, dringlichkeit, datum);
         this.newscardRepository.save(NeueNews);
     }
 

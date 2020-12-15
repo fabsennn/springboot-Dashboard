@@ -1,5 +1,7 @@
 package com.mit.Dashboard.newscard;
 
+import org.springframework.data.annotation.CreatedDate;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,14 +21,18 @@ public class newscard {
     @Column(name = "DRINGLICHKEIT")
     private String dringlichkeit;
 
+    @Column(name = "DATUM")
+    private String datum;
+
     public newscard() {
 
     }
 
-    public newscard(String neuigkeit, String berater, String dringlichkeit) {
+    public newscard(String neuigkeit, String berater, String dringlichkeit, String datum) {
         this.neuigkeit = neuigkeit;
         this.berater = berater;
         this.dringlichkeit = dringlichkeit;
+        this.datum = datum;
     }
 
     public long getId() {
@@ -61,4 +67,11 @@ public class newscard {
         this.dringlichkeit = dringlichkeit;
     }
 
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatum(String datum) {
+        this.datum = datum;
+    }
 }
