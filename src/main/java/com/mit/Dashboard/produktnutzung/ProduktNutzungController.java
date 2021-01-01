@@ -15,6 +15,6 @@ public class ProduktNutzungController {
 
     @GetMapping("/produktnutzung")
     public List<ProduktNutzung> getAllProduktNutzungen() {
-        return produktNutzungService.findAll();
+        return produktNutzungService.findAllForShow();
     }
 }

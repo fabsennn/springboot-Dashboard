@@ -14,22 +14,22 @@ public class ProduktNutzung {
     private String merkmal;
 
     @Column(name = "VERBUENDE")
-    private String verbuende;
+    private int verbuende;
 
     @Column(name = "KRANKENVERSICHERUNG")
-    private String krankenVersicherung;
+    private int krankenVersicherung;
 
     @Column(name = "SACHVERSICHERUNG")
-    private String sachVersicherung;
+    private int sachVersicherung;
 
-    @Column(name = "KFZ-Versicherung")
-    private String kfzVersicherung;
+    @Column(name = "KFZVERSICHERUNG")
+    private int kfzVersicherung;
 
-    @Column(name = "Unfall-Versicherung")
-    private String unfallVersicherung;
+    @Column(name = "UNFALLVERSICHERUNG")
+    private int unfallVersicherung;
 
 
-    public ProduktNutzung() { //leer
+    public ProduktNutzung() {
     }
 
     public long getId() {
@@ -48,55 +48,43 @@ public class ProduktNutzung {
         this.merkmal = merkmal;
     }
 
-    public String getVerbuende() {
+    public int getVerbuende() {
         return verbuende;
     }
 
-    public void setVerbuende(String verbuende) {
+    public void setVerbuende(int verbuende) {
         this.verbuende = verbuende;
     }
 
-    public String getKrankenVersicherung() {
+    public int getKrankenVersicherung() {
         return krankenVersicherung;
     }
 
-    public void setKrankenVersicherung(String krankenVersicherung) {
+    public void setKrankenVersicherung(int krankenVersicherung) {
         this.krankenVersicherung = krankenVersicherung;
     }
 
-    public String getSachVersicherung() {
+    public int getSachVersicherung() {
         return sachVersicherung;
     }
 
-    public void setSachVersicherung(String sachVersicherung) {
+    public void setSachVersicherung(int sachVersicherung) {
         this.sachVersicherung = sachVersicherung;
     }
 
-    public String getKfzVersicherung() {
+    public int getKfzVersicherung() {
         return kfzVersicherung;
     }
 
-    public void setKfzVersicherung(String kfzVersicherung) {
+    public void setKfzVersicherung(int kfzVersicherung) {
         this.kfzVersicherung = kfzVersicherung;
     }
 
-    public String getUnfallVersicherung() {
+    public int getUnfallVersicherung() {
         return unfallVersicherung;
     }
 
-    public void setUnfallVersicherung(String unfallVersicherung) {
+    public void setUnfallVersicherung(int unfallVersicherung) {
         this.unfallVersicherung = unfallVersicherung;
-    }
-
-    @Override
-    public String toString() {
-        return "ProduktNutzung{" +
-                "merkmal='" + merkmal + '\'' +
-                ", verbuende='" + verbuende + '\'' +
-                ", krankenVersicherung='" + krankenVersicherung + '\'' +
-                ", sachVersicherung='" + sachVersicherung + '\'' +
-                ", kfzVersicherung='" + kfzVersicherung + '\'' +
-                ", unfallVersicherung='" + unfallVersicherung + '\'' +
-                '}';
     }
 }

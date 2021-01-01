@@ -13,10 +13,15 @@ public class ProduktNutzungService {
     @Autowired
     private ProduktNutzungRepository produktNutzungRepository;
 
-    public List<ProduktNutzung> findAll()
+    public List<ProduktNutzung> findAllForShow()
     {
         List<ProduktNutzung> produktNutzungs = new ArrayList<>();
-        produktNutzungRepository.findAll().forEach(p -> produktNutzungs.add(p));
+        produktNutzungRepository.findAll()
+                .forEach(p -> {
+                    if (p.getId() == 1 || p.getId() == 8 || p.getId() == 9) {
+                        produktNutzungs.add(p);
+                    }
+                });
         return produktNutzungs;
     }
 }
