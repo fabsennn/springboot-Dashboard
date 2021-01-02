@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.sql.Blob;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -15,9 +16,9 @@ public class newscardController {
 
     @RequestMapping(path = "/news/{neuigkeit}/{berater}/{dringlichkeit}/{datum}", method = RequestMethod.POST)
     public void News(@PathVariable() String neuigkeit, @PathVariable() String berater,
-                     @PathVariable() String dringlichkeit, @PathVariable() String datum)
+                     @PathVariable() String dringlichkeit, @PathVariable() String datum, @PathVariable() Blob datei)
     {
-        newscard NeueNews = new newscard(neuigkeit, berater, dringlichkeit, datum);
+        newscard NeueNews = new newscard(neuigkeit, berater, dringlichkeit, datum, datei);
         this.newscardRepository.save(NeueNews);
     }
 

@@ -1,12 +1,12 @@
 package com.mit.Dashboard.newscard;
 
-import org.springframework.data.annotation.CreatedDate;
-
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Table(name= "NEWSCARD")
 public class newscard {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,15 +24,19 @@ public class newscard {
     @Column(name = "DATUM")
     private String datum;
 
-    public newscard() {
+  /*  @Column(name= "DATEI")
+    private final Blob datei; */
 
+    public newscard(){
+        //this.datei = datei;
     }
 
-    public newscard(String neuigkeit, String berater, String dringlichkeit, String datum) {
+    public newscard(String neuigkeit, String berater, String dringlichkeit, String datum, Blob datei) {
         this.neuigkeit = neuigkeit;
         this.berater = berater;
         this.dringlichkeit = dringlichkeit;
         this.datum = datum;
+       // this.datei = datei;
     }
 
     public long getId() {
