@@ -27,9 +27,21 @@ public class newscardController {
     @GetMapping("/news")
     public List<newscard> getAllNews() {return newscardService.findAll();}
 
-    @GetMapping("/news/newsbyberatername/{beraterName}")
-    public List<newscard> getNews(@PathVariable String beraterName)
+    @GetMapping("/news/newsbyberaternameaufsteigenddatum/{beraterName}")
+    public List<newscard> getNewsDatumAufsteigend(@PathVariable String beraterName)
     {
-        return newscardService.findnewsbyberatername(beraterName);
+        return newscardService.findnewsbyberaternameaufsteigenddatum(beraterName);
+    }
+
+    @GetMapping("/news/newsbyberaternamedringlichkeit/{beraterName}")
+    public List<newscard> getNewsDringlichkeit(@PathVariable String beraterName)
+    {
+        return newscardService.findnewsbyberaternamedringlichkeit(beraterName);
+    }
+
+    @GetMapping("/news/newsbyberaternameabsteigenddatum/{beraterName}")
+    public List<newscard> getNewsDatumAbsteigend(@PathVariable String beraterName)
+    {
+        return newscardService.findnewsbyberaternameabsteigenddatum(beraterName);
     }
 }

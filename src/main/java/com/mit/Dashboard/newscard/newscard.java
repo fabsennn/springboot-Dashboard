@@ -1,6 +1,5 @@
 package com.mit.Dashboard.newscard;
 
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 
