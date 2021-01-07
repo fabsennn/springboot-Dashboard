@@ -2,6 +2,7 @@ package com.mit.Dashboard.newscard;
 
 
 import javax.persistence.*;
+import java.io.File;
 
 @Entity
 @Table(name= "NEWSCARD")
@@ -23,15 +24,20 @@ public class newscard {
     @Column(name = "DATUM")
     private String datum;
 
+    @Lob
+    @Column(name="DATEI", columnDefinition = "Blob")
+    private File datei;
+
     public newscard() {
 
     }
 
-    public newscard(String neuigkeit, String berater, String dringlichkeit, String datum) {
+    public newscard(String neuigkeit, String berater, String dringlichkeit, String datum, File datei) {
         this.neuigkeit = neuigkeit;
         this.berater = berater;
         this.dringlichkeit = dringlichkeit;
         this.datum = datum;
+        this.datei = datei;
     }
 
     public long getId() {
@@ -72,5 +78,13 @@ public class newscard {
 
     public void setDatum(String datum) {
         this.datum = datum;
+    }
+
+    public void setDatei(File datei) {
+        this.datei = datei;
+    }
+
+    public File getDatei() {
+        return datei;
     }
 }
