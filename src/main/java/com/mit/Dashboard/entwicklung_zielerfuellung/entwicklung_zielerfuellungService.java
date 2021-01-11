@@ -61,9 +61,9 @@ public class entwicklung_zielerfuellungService {
         }
 
         double []GesMonateEinzelnt;      // Werte für einzelne Monate und einzelne Merkmale 0 - 11 FK, 12 - 23 PB, 24 - 35 PK
-        GesMonateEinzelnt = new double[315];    // Zielerreichung Zeitanteil 36 - 47 FK, 48 - 59 PB, 60 - 71 PK
-        for (int i =0; i <= 314; i++)           // Zielerreichung Gesamt je Bereich 72 - 74
-        {                                      // FK HeatMap 75 - 314
+        GesMonateEinzelnt = new double[795];    // Zielerreichung Zeitanteil 36 - 47 FK, 48 - 59 PB, 60 - 71 PK
+        for (int i =0; i <= 794; i++)           // Zielerreichung Gesamt je Bereich 72 - 74
+        {                                      // FK HeatMap 75 - 314 , PB HeatMap 315-554  , PK HeatMap 555 - 794
             GesMonateEinzelnt[i] = 0;
         }
 
@@ -73,6 +73,8 @@ public class entwicklung_zielerfuellungService {
         int a2 = 12, b2 = 12, c2 = 12, d2 = 12, e2 = 12, f2 = 12, g2 = 12, h2 = 12, i2 = 12, j2 = 12, k2 = 12, l2 = 12, m2 = 12, n2 = 12, o2 = 12, p2 = 12, q2 = 12, r2 = 12, s2 = 12;
         int a3 = 24, b3 = 24, c3 = 24, d3 = 24, e3 = 24, f3 = 24, g3 = 24, h3 = 24, i3 = 24, j3 = 24, k3 = 24, l3 = 24, m3 = 24, n3 = 24, o3 = 24, p3 = 24, q3 = 24, r3 = 24, s3 = 24;
         int zahlerFK = 75;
+        int zahlerPB = 315;
+        int zahlerPK = 555;
 
         for(entwicklung_zielerfuellung g: all3){
 
@@ -216,6 +218,8 @@ public class entwicklung_zielerfuellungService {
             }
             if(g.getMarktbereich().equals("PB"))
             {
+                GesMonateEinzelnt[zahlerPB] = g.getZielerreichung_zeitanteil();
+                zahlerPB ++;
                 if(g.getMerkmal().equals("Baufischutz") && g.getMarktbereich().equals("PB"))
                 {
                     if(g.getZielerreichung_jahr() != 0)
@@ -352,6 +356,8 @@ public class entwicklung_zielerfuellungService {
             }
             if(g.getMarktbereich().equals("PK"))
             {
+                GesMonateEinzelnt[zahlerPK] = g.getZielerreichung_zeitanteil();
+                zahlerPK ++;
                 if(g.getMerkmal().equals("Baufischutz") && g.getMarktbereich().equals("PK"))
                 {
                     if(g.getZielerreichung_jahr() != 0)
@@ -531,7 +537,7 @@ public class entwicklung_zielerfuellungService {
         int ProzentPK = (int)GesMonateEinzelnt[74];
         GesMonateEinzelnt[74] = (double)ProzentPK;
 
-        for(int i = 75; i <= 314; i++)
+        for(int i = 75; i <= 794; i++)
         {
             int DoubleToInt = (int)GesMonateEinzelnt[i];
             GesMonateEinzelnt[i] = (double)DoubleToInt;
