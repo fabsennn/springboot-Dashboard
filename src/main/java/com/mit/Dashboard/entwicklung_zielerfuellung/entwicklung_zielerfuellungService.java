@@ -1,15 +1,11 @@
 package com.mit.Dashboard.entwicklung_zielerfuellung;
 
-import com.mit.Dashboard.Gespraechsplanung;
-import com.mit.Dashboard.kundenliste_pk.kundenliste_pk;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+
 
 @Service
 public class entwicklung_zielerfuellungService {
@@ -27,7 +23,7 @@ public class entwicklung_zielerfuellungService {
         return ziele;
     }
 
-    public double[] findByEntwicklung_zielerfuellung(){
+    public double[] findByEntwicklung_zielerfuellung(){                      // Alle Daten für Erfolgsmessung (FK PB PK)
         var it = entwicklung_zielerfuellungRepository.findAll();
 
         var all3 = new ArrayList<entwicklung_zielerfuellung>();
@@ -87,6 +83,7 @@ public class entwicklung_zielerfuellungService {
 
         it.forEach(e -> all3.add(e));
 
+        // Hier folgen Hilfs Variablen zum späteren summieren der Daten
         int a1 = 0, b1 = 0, c1 = 0, d1 = 0, e1 = 0, f1 = 0, g1 = 0, h1 = 0, i1 = 0, j1 = 0, k1 = 0, l1 = 0, m1 = 0, n1 = 0, o1 = 0, p1 = 0, q1 = 0, r1 = 0, s1 = 0, t1= 0;
         int a2 = 12, b2 = 12, c2 = 12, d2 = 12, e2 = 12, f2 = 12, g2 = 12, h2 = 12, i2 = 12, j2 = 12, k2 = 12, l2 = 12, m2 = 12, n2 = 12, o2 = 12, p2 = 12, q2 = 12, r2 = 12, s2 = 12, t2 = 12;
         int a3 = 24, b3 = 24, c3 = 24, d3 = 24, e3 = 24, f3 = 24, g3 = 24, h3 = 24, i3 = 24, j3 = 24, k3 = 24, l3 = 24, m3 = 24, n3 = 24, o3 = 24, p3 = 24, q3 = 24, r3 = 24, s3 = 24, t3 = 24;
@@ -96,18 +93,18 @@ public class entwicklung_zielerfuellungService {
 
         for(entwicklung_zielerfuellung g: all3){
 
-            if(g.getMarktbereich().equals("FK"))
+            if(g.getMarktbereich().equals("FK"))  // Bereich FK
             {
-                GesMonateEinzelnt[zahlerFK] = g.getZielerreichung_zeitanteil();
-                zahlerFK ++;
-                if(g.getMerkmal().equals("Baufischutz"))
+                GesMonateEinzelnt[zahlerFK] = g.getZielerreichung_zeitanteil();    // Nimmt sich die Zielerreichung Zeitanteil Daten heraus für die Heatmap
+                zahlerFK ++;                                                        // und speichert diese im Array
+                if(g.getMerkmal().equals("Baufischutz"))  // Wenn Merkmal = Baufischutz
                 {
 
-                    if(g.getZielerreichung_jahr() != 0)
+                    if(g.getZielerreichung_jahr() != 0)  // Wenn der Wert Zielerreichung_Jahr existiert, schreibe ihn ins FKGes Array
                     {FKGes[0] = g.getZielerreichung_jahr();}
-                    if(g.getZielerreichung_zeitanteil() != 0)
+                    if(g.getZielerreichung_zeitanteil() != 0)  // Wenn der Wert Zielerreichung-Zeitanteil existiert, schreibe ihn ins FKGesZ Array
                     {FKGesZ[0] = g.getZielerreichung_zeitanteil();}
-                    GesMonateEinzelnt[a1] = GesMonateEinzelnt[a1] + g.getWert_aktueller_zeitraum();
+                    GesMonateEinzelnt[a1] = GesMonateEinzelnt[a1] + g.getWert_aktueller_zeitraum();  // Summiert alle Werte aller Merkmale für jeden Monat
                     a1++;
                 }
                 else if(g.getMerkmal().equals("Bauspargeschäft"))
@@ -679,43 +676,43 @@ public class entwicklung_zielerfuellungService {
                 }
             } */
         }
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt FKGes ins Return Array und rundet die Werte
         {FKGes[20] = FKGes[20] + FKGes[i];}
         GesMonateEinzelnt[72] = FKGes[20] / 20;
         int ProzentFK = (int)GesMonateEinzelnt[72];
         GesMonateEinzelnt[72] = (double)ProzentFK;
 
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt FKGesZ ins Return Array und rundet die Werte
         {FKGesZ[20] = FKGesZ[20] + FKGesZ[i];}
         GesMonateEinzelnt[795] = FKGesZ[20] / 20;
         int ProzentFKZ = (int)GesMonateEinzelnt[795];
         GesMonateEinzelnt[795] = (double)ProzentFKZ;
 
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt PBGes ins Return Array und rundet die Werte
         {PBGes[20] = PBGes[20] + PBGes[i];}
         GesMonateEinzelnt[73] = PBGes[20] / 20;
         int ProzentPB = (int)GesMonateEinzelnt[73];
         GesMonateEinzelnt[73] = (double)ProzentPB;
 
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt PBGesZ ins Return Array und rundet die Werte
         {PBGesZ[20] = PBGesZ[20] + PBGesZ[i];}
         GesMonateEinzelnt[796] = PBGesZ[20] / 20;
         int ProzentPBZ = (int)GesMonateEinzelnt[796];
         GesMonateEinzelnt[796] = (double)ProzentPBZ;
 
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt PKGes ins Return Array und rundet die Werte
         {PKGes[20] = PKGes[20] + PKGes[i];}
         GesMonateEinzelnt[74] = PKGes[20] / 20;
         int ProzentPK = (int)GesMonateEinzelnt[74];
         GesMonateEinzelnt[74] = (double)ProzentPK;
 
-        for(int i =0; i < 20; i++)
+        for(int i =0; i < 20; i++)  // Schreibt PKGesZ ins Return Array und rundet die Werte
         {PKGesZ[20] = PKGesZ[20] + PKGesZ[i];}
         GesMonateEinzelnt[797] = PKGesZ[20] / 20;
         int ProzentPKZ = (int)GesMonateEinzelnt[797];
         GesMonateEinzelnt[797] = (double)ProzentPKZ;
 
-        for(int i = 75; i <= 794; i++)
+        for(int i = 75; i <= 794; i++) // Rundet alle Werte im gegebenen Bereich (Um Heatmap anschaulich zu machen)
         {
             int DoubleToInt = (int)GesMonateEinzelnt[i];
             GesMonateEinzelnt[i] = (double)DoubleToInt;
